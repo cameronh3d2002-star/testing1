@@ -198,6 +198,22 @@ p, a{
   font-size: 30px;
   margin-bottom: 18px;
 }
+.hero,
+.hero-overlay {
+  position: relative;
+  z-index: 0;
+}
+
+/* allow clicks to pass through the hero overlay */
+.hero-overlay {
+  pointer-events: none;
+}
+
+/* BUT keep buttons clickable */
+.hero-overlay .hero-buttons,
+.hero-overlay .call-box {
+  pointer-events: auto;
+}
 
 .hero-overlay h2{
   margin-bottom: 5px;
@@ -428,5 +444,6 @@ footer{
 @media (max-width: 420px){
   .brand{ font-size: 20px; }
 }
+
 
 
