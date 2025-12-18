@@ -1,107 +1,139 @@
-* {
+/* ========== BASE ========== */
+:root{
+  --brand-red: #FF0000;
+  --page-bg: #f4f4f4;
+  --light-gray: #e6e6e6;
+}
+
+*{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Sansita', sans-serif;
-
-
 }
 
-body {
-	
-  background: #f4f4f4;
+html, body{
+  height: 100%;
+}
+
+body{
+  background: var(--page-bg);
   color: #111;
+  font-family: 'Sansita', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
-  h1, h2, h3 {
+
+/* Push footer to bottom on short pages */
+.page-wrapper{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+footer{
+  margin-top: auto;
+}
+
+/* Typography */
+h1, h2, h3{
   font-family: 'Sansita', sans-serif;
   font-weight: 800;
 }
-
-p, a {
+p, a{
   font-weight: 400;
 }
-.call-box h2 {
-  font-size: 32px;
-  font-weight: 800;
-  letter-spacing: 1px;
+
+/* ========== HEADER (DESKTOP DEFAULT) ========== */
+.header{
+  background: #fff;
 }
 
-.call-box h3 {
-  font-size: 24px;
-  font-weight: 700;
-}
-
-/* HEADER */
-.header {
+.header-inner{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 26px 14px;
   text-align: center;
-  padding: 30px 10px;
+  position: relative;
 }
 
-.header h1 {
-  color: #FF0000;
+.brand{
+  display: inline-block;
+  color: var(--brand-red);
+  text-decoration: none;
   font-size: 48px;
+  font-weight: 800;
+  line-height: 1;
   margin-bottom: 10px;
 }
 
-.header nav a {
-  margin: 0 15px;
-  text-decoration: none;
-  color: #FF0000;
-  font-weight: bold;
+.nav{
+  display: inline-flex;
+  gap: 28px;
 }
 
-.header nav a.active {
+.nav a{
+  text-decoration: none;
+  color: var(--brand-red);
+  font-weight: 700;
+}
+
+.nav a.active{
   text-decoration: underline;
 }
 
-/* SCROLLING TEXT */
-.scroll-container {
-  background: #e6e6e6;
+/* Hamburger hidden on desktop */
+.menu-toggle{
+  display: none;
+  position: absolute;
+  right: 14px;
+  top: 22px;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.menu-toggle span{
+  display: block;
+  height: 3px;
+  margin: 7px 0;
+  background: var(--brand-red);
+  border-radius: 2px;
+}
+
+/* ========== SCROLLING TEXT (GAPLESS) ========== */
+.scroll-container{
+  background: var(--light-gray);
   overflow: hidden;
   white-space: nowrap;
 }
 
-.scroll-track {
+.scroll-track{
   display: flex;
   width: max-content;
   animation: marquee 20s linear infinite;
 }
 
-.scroll-track span {
-  padding-right: 5px;
-  color: #FF0000;
-  font-weight: bold;
+.scroll-track span{
+  padding-right: 40px;
+  color: var(--brand-red);
+  font-weight: 800;
   font-size: 40px;
 }
 
-@keyframes marquee {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
+@keyframes marquee{
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
 }
 
-}
-
-@keyframes scroll {
-  from {
-    transform: translateX(100%);
-  }
-  to {
-    transform: translateX(-100%);
-  }
-}
-
-/* HERO */
-.hero {
+/* ========== HERO ========== */
+.hero{
   background: url("images/background1.jpg") center/cover no-repeat;
   height: 450px;
   position: relative;
 }
 
-.hero-overlay {
+.hero-overlay{
   background: rgba(0,0,0,0.55);
   color: #fff;
   height: 100%;
@@ -113,294 +145,280 @@ p, a {
   padding: 20px;
 }
 
-.hero-overlay p {
-  max-width: 800px;
+.hero-overlay p{
+  max-width: 900px;
   font-size: 30px;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 
-.hero-overlay h2 {
+.hero-overlay h2{
   margin-bottom: 5px;
 }
 
-.hero-buttons {
-  margin-top: 20px;
+.call-box h2{
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+.call-box h3{
+  font-size: 24px;
+  font-weight: 700;
 }
 
-.btn {
+/* Buttons */
+.hero-buttons{
+  margin-top: 20px;
+  display: flex;
+  gap: 18px;
+}
+
+.btn{
   background: #fff;
-  color: #FF0000;
+  color: var(--brand-red);
   padding: 12px 30px;
-  margin: 0 10px;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 800;
   border: 2px solid #fff;
 }
 
-.btn:hover {
+.btn:hover{
   background: transparent;
   color: #fff;
 }
-/* ABOUT SECTION */
-.about-section {
+
+/* ========== ABOUT SECTION ========== */
+.about-section{
   background: #ffffff;
   padding: 70px 40px;
   text-align: center;
 }
 
-.about-inner {
+.about-inner{
   max-width: 900px;
   margin: 0 auto;
 }
 
-.about-section h2 {
-  color: var(--brand-red, #FF0000);
+.about-section h2{
+  color: var(--brand-red);
   font-size: 34px;
   margin-bottom: 25px;
   font-weight: 800;
 }
 
-.about-section p {
+.about-section p{
   font-size: 18px;
   line-height: 1.7;
   margin-bottom: 18px;
   color: #333;
 }
 
-
-/* INFO BOXES */
-.info-section {
+/* ========== INFO BOXES ========== */
+.info-section{
   display: flex;
   height: 200px;
 }
 
-.info-box {
+.info-box{
   flex: 1;
 }
 
-.info-box.red {
-  background: #FF0000;
+.info-box.red{
+  background: var(--brand-red);
 }
 
-.info-box.grey {
+.info-box.grey{
   background: #999;
 }
 
-/* FOOTER */
-footer {
+/* ========== FOOTER ========== */
+footer{
   background: #eee;
   text-align: center;
   padding: 20px;
 }
 
-.socials img {
+.socials img{
   width: 30px;
   margin: 0 10px;
 }
 
-/* SERVICES */
-.content-section {
+/* ========== SERVICES ========== */
+.content-section{
   padding: 60px 40px;
   text-align: center;
 }
 
-.content-section h2 {
-  color: #FF0000;
+.content-section h2{
+  color: var(--brand-red);
   margin-bottom: 40px;
 }
 
-.service-grid {
+.service-grid{
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 30px;
 }
 
-.service-box {
+.service-box{
   background: #fff;
   padding: 25px;
-  border-left: 5px solid #FF0000;
+  border-left: 5px solid var(--brand-red);
 }
 
-/* CONTACT */
-.contact-section {
+/* ========== CONTACT ========== */
+.contact-section{
   display: flex;
   flex-wrap: wrap;
   min-height: 400px;
 }
 
-.contact-info {
+.contact-info{
   flex: 1;
-  background: #FF0000;
+  background: var(--brand-red);
   color: #fff;
   padding: 40px;
 }
 
-.map-container {
+.map-container{
   flex: 1;
   min-height: 400px;
 }
 
-.map-container iframe {
+.map-container iframe{
   width: 100%;
   height: 100%;
   border: none;
 }
-/* ------------------------------
-   MOBILE / RESPONSIVE STYLES
-   Add this at the bottom of style.css
--------------------------------- */
-html, body {
-  height: 100%;
-}
 
-.page-wrapper {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
+/* ========== MOBILE SWITCH (LIKE YOUR SQUARESPACE SCREENSHOT) ========== */
+@media (max-width: 768px){
 
-footer {
-  margin-top: auto;
-}
-
-
-@media (max-width: 768px) {
-
-  /* Header */
-  .header {
-    padding: 20px 12px;
+  /* Header becomes: centered logo + hamburger, nav hidden */
+  .header-inner{
+    padding: 14px 14px;
+    text-align: center;
   }
 
-  .header h1 {
-    font-size: 34px;
-    line-height: 1.1;
+  .brand{
+    font-size: 22px;   /* like your screenshot */
+    margin-bottom: 0;
   }
 
-  .header nav {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+  .menu-toggle{
+    display: block;
+    top: 8px;
+  }
+
+  .nav{
+    display: none;
+    position: absolute;
+    top: 54px;
+    left: 0;
+    right: 0;
+    background: #fff;
+    padding: 12px 14px 18px;
+    flex-direction: column;
     gap: 10px;
+    border-top: 1px solid #eee;
   }
 
-  .header nav a {
-    margin: 0;
-    padding: 8px 10px;
-    border-radius: 6px;
+  /* When header has .is-open (JS toggles this) show menu */
+  .header.is-open .nav{
+    display: flex;
   }
 
-  /* Scrolling strip text */
-  .scroll-track span {
+  .nav a{
+    padding: 10px 8px;
+    text-align: center;
+  }
+
+  /* Marquee smaller on mobile */
+  .scroll-track span{
     font-size: 14px;
-    padding-right: 24px;
+    padding-right: 18px;
   }
 
-  /* Hero */
-  .hero {
-    height: auto;              /* allow it to grow */
+  /* Hero stacks naturally */
+  .hero{
+    height: auto;
     min-height: 420px;
   }
 
-  .hero-overlay {
-    padding: 26px 16px;
+  .hero-overlay{
+    padding: 22px 14px;
   }
 
-  /* If you're using the PNG behind the call text */
-  .call-box {
+  .hero-overlay p{
+    font-size: 16px;
+    margin-bottom: 14px;
+  }
+
+  .call-box h2{
+    font-size: 22px;
+    margin-top: 6px;
+  }
+
+  .call-box h3{
+    font-size: 18px;
+  }
+
+  /* Buttons vertical like Squarespace */
+  .hero-buttons{
+    flex-direction: column;
     width: 100%;
-    max-width: 92vw;
-    padding: 26px 18px;
-    background-size: contain;  /* usually better on mobile */
+    max-width: 320px;
+    gap: 12px;
+    margin-top: 16px;
   }
 
-  .hero-overlay p {
+  .btn{
+    width: 100%;
+    text-align: center;
+  }
+
+  /* About section spacing like screenshot */
+  .about-section{
+    padding: 45px 18px;
+    text-align: left; /* optional: often feels more like Squarespace */
+  }
+
+  .about-section h2{
+    font-size: 34px; /* matches your screenshot big "About Us" */
+    color: #000;
+  }
+
+  .about-section p{
     font-size: 16px;
   }
 
-  .call-box h2 {
-    font-size: 26px;
-  }
-
-  .call-box h3 {
-    font-size: 20px;
-  }
-
-  /* Buttons stack nicely on mobile */
-  .hero-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    width: 100%;
-    max-width: 360px;
-    margin-top: 18px;
-  }
-
-  .btn {
-    width: 100%;
-    text-align: center;
-    margin: 0;
-  }
-
-  /* Coloured boxes become vertical */
-  .info-section {
+  /* Info boxes stack */
+  .info-section{
     flex-direction: column;
     height: auto;
   }
 
-  .info-box {
+  .info-box{
     height: 140px;
   }
 
-  /* Services page spacing */
-  .content-section {
-    padding: 40px 16px;
-  }
-
-  /* Contact page: stack info above map */
-  .contact-section {
+  /* Contact stacks */
+  .contact-section{
     flex-direction: column;
   }
 
-  .contact-info {
+  .contact-info{
     padding: 28px 16px;
   }
 
-  .map-container {
+  .map-container{
     min-height: 320px;
   }
 
-  /* Footer icons a bit bigger for tapping */
-  .socials img {
+  .socials img{
     width: 36px;
   }
 }
 
-@media (max-width: 420px) {
-  .header h1 {
-    font-size: 30px;
-  }
-
-  .call-box h2 {
-    font-size: 24px;
-  }
-
-  .call-box h3 {
-    font-size: 18px;
-  }
+@media (max-width: 420px){
+  .brand{ font-size: 20px; }
 }
-@media (max-width: 768px) {
-  .about-section {
-    padding: 45px 18px;
-  }
-
-  .about-section h2 {
-    font-size: 28px;
-  }
-
-  .about-section p {
-    font-size: 16px;
-  }
-}
-
-
-
