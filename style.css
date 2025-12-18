@@ -1,0 +1,391 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Sansita', sans-serif;
+
+
+}
+
+body {
+	
+  background: #f4f4f4;
+  color: #111;
+}
+  h1, h2, h3 {
+  font-family: 'Sansita', sans-serif;
+  font-weight: 800;
+}
+
+p, a {
+  font-weight: 400;
+}
+.call-box h2 {
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.call-box h3 {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+/* HEADER */
+.header {
+  text-align: center;
+  padding: 30px 10px;
+}
+
+.header h1 {
+  color: #FF0000;
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+.header nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #FF0000;
+  font-weight: bold;
+}
+
+.header nav a.active {
+  text-decoration: underline;
+}
+
+/* SCROLLING TEXT */
+.scroll-container {
+  background: #e6e6e6;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.scroll-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 20s linear infinite;
+}
+
+.scroll-track span {
+  padding-right: 5px;
+  color: #FF0000;
+  font-weight: bold;
+  font-size: 40px;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+/* HERO */
+.hero {
+  background: url("images/background1.jpg") center/cover no-repeat;
+  height: 450px;
+  position: relative;
+}
+
+.hero-overlay {
+  background: rgba(0,0,0,0.55);
+  color: #fff;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.hero-overlay p {
+  max-width: 800px;
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+.hero-overlay h2 {
+  margin-bottom: 5px;
+}
+
+.hero-buttons {
+  margin-top: 20px;
+}
+
+.btn {
+  background: #fff;
+  color: #FF0000;
+  padding: 12px 30px;
+  margin: 0 10px;
+  text-decoration: none;
+  font-weight: bold;
+  border: 2px solid #fff;
+}
+
+.btn:hover {
+  background: transparent;
+  color: #fff;
+}
+/* ABOUT SECTION */
+.about-section {
+  background: #ffffff;
+  padding: 70px 40px;
+  text-align: center;
+}
+
+.about-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.about-section h2 {
+  color: var(--brand-red, #FF0000);
+  font-size: 34px;
+  margin-bottom: 25px;
+  font-weight: 800;
+}
+
+.about-section p {
+  font-size: 18px;
+  line-height: 1.7;
+  margin-bottom: 18px;
+  color: #333;
+}
+
+
+/* INFO BOXES */
+.info-section {
+  display: flex;
+  height: 200px;
+}
+
+.info-box {
+  flex: 1;
+}
+
+.info-box.red {
+  background: #FF0000;
+}
+
+.info-box.grey {
+  background: #999;
+}
+
+/* FOOTER */
+footer {
+  background: #eee;
+  text-align: center;
+  padding: 20px;
+}
+
+.socials img {
+  width: 30px;
+  margin: 0 10px;
+}
+
+/* SERVICES */
+.content-section {
+  padding: 60px 40px;
+  text-align: center;
+}
+
+.content-section h2 {
+  color: #FF0000;
+  margin-bottom: 40px;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.service-box {
+  background: #fff;
+  padding: 25px;
+  border-left: 5px solid #FF0000;
+}
+
+/* CONTACT */
+.contact-section {
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 400px;
+}
+
+.contact-info {
+  flex: 1;
+  background: #FF0000;
+  color: #fff;
+  padding: 40px;
+}
+
+.map-container {
+  flex: 1;
+  min-height: 400px;
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+/* ------------------------------
+   MOBILE / RESPONSIVE STYLES
+   Add this at the bottom of style.css
+-------------------------------- */
+
+@media (max-width: 768px) {
+
+  /* Header */
+  .header {
+    padding: 20px 12px;
+  }
+
+  .header h1 {
+    font-size: 34px;
+    line-height: 1.1;
+  }
+
+  .header nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .header nav a {
+    margin: 0;
+    padding: 8px 10px;
+    border-radius: 6px;
+  }
+
+  /* Scrolling strip text */
+  .scroll-track span {
+    font-size: 14px;
+    padding-right: 24px;
+  }
+
+  /* Hero */
+  .hero {
+    height: auto;              /* allow it to grow */
+    min-height: 420px;
+  }
+
+  .hero-overlay {
+    padding: 26px 16px;
+  }
+
+  /* If you're using the PNG behind the call text */
+  .call-box {
+    width: 100%;
+    max-width: 92vw;
+    padding: 26px 18px;
+    background-size: contain;  /* usually better on mobile */
+  }
+
+  .hero-overlay p {
+    font-size: 16px;
+  }
+
+  .call-box h2 {
+    font-size: 26px;
+  }
+
+  .call-box h3 {
+    font-size: 20px;
+  }
+
+  /* Buttons stack nicely on mobile */
+  .hero-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    max-width: 360px;
+    margin-top: 18px;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+    margin: 0;
+  }
+
+  /* Coloured boxes become vertical */
+  .info-section {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .info-box {
+    height: 140px;
+  }
+
+  /* Services page spacing */
+  .content-section {
+    padding: 40px 16px;
+  }
+
+  /* Contact page: stack info above map */
+  .contact-section {
+    flex-direction: column;
+  }
+
+  .contact-info {
+    padding: 28px 16px;
+  }
+
+  .map-container {
+    min-height: 320px;
+  }
+
+  /* Footer icons a bit bigger for tapping */
+  .socials img {
+    width: 36px;
+  }
+}
+
+@media (max-width: 420px) {
+  .header h1 {
+    font-size: 30px;
+  }
+
+  .call-box h2 {
+    font-size: 24px;
+  }
+
+  .call-box h3 {
+    font-size: 18px;
+  }
+}
+@media (max-width: 768px) {
+  .about-section {
+    padding: 45px 18px;
+  }
+
+  .about-section h2 {
+    font-size: 28px;
+  }
+
+  .about-section p {
+    font-size: 16px;
+  }
+}
+
+
