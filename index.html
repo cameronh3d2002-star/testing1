@@ -1,85 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link href="https://fonts.googleapis.com/css2?family=Sansita:wght@400;700;800&display=swap" rel="stylesheet">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Jones Marine</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Sansita:wght@400;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
-  <body>
+
+<body>
   <div class="page-wrapper">
-  <!-- HEADER -->
-  <header class="header">
-    <h1>Jones Marine</h1>
-    <nav>
-      <a href="services.html">Services</a>
-      <a href="index.html" class="active">Home</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
 
-  <!-- SCROLLING TEXT -->
-  <div class="scroll-container">
-  <div class="scroll-track">
-    <span>Breakdown // Repair // Recovery // Rescue // Breakdown // Repair // Recovery // Rescue // Breakdown // Repair // Recovery // Rescue // Breakdown // Repair // Recovery // Rescue //</span>
-    <span>Breakdown // Repair // Recovery // Rescue // Breakdown // Repair // Recovery // Rescue // Breakdown // Repair // Recovery // Rescue // Breakdown // Repair // Recovery // Rescue //</span>
-  </div>
-</div>
+    <!-- HEADER (mobile hamburger ready) -->
+    <header class="header">
+      <div class="header-inner">
+        <a class="brand" href="index.html">Jones Marine</a>
 
+        <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
 
-  <!-- HERO SECTION -->
-  <section class="hero">
-    <div class="hero-overlay">
-  <div class="call-box">
-    <p>
-      Experts in vehicle, plant, and marine recovery, maintenance, and repairs,
-      offering thorough MOT preparation and precision bespoke fabrication services.
-    </p>
+        <nav class="nav">
+          <a href="services.html">Services</a>
+          <a href="index.html" class="active">Home</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </header>
 
-    <h2>Call us Now!</h2>
-    <h3>+44 7901 742254</h3>
-  </div>
-
-  <div class="hero-buttons">
-    <a href="services.html" class="btn">SERVICES</a>
-    <a href="contact.html" class="btn">CONTACT US</a>
-  </div>
-</div>
-
-</section> <!-- end of .hero -->
-
-<section class="about-section">
-  <div class="about-inner">
-    <h2>About Jones Marine</h2>
-
-    <p>
-      Jones Marine provides professional vehicle, plant, and marine recovery,
-      repairs, and rescue services across the region. With years of hands-on
-      experience, we pride ourselves on fast response times, expert workmanship,
-      and dependable service—day or night.
-    </p>
-
-    <p>
-      From roadside breakdowns to marine recovery and bespoke fabrication,
-      our team is equipped to handle every job safely and efficiently.
-    </p>
-  </div>
-</section>
-
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="socials">
-      <a href="#"><img src="images/facebook.png" alt="Facebook"></a>
-      <a href="#"><img src="images/location.png" alt="Location"></a>
+    <!-- SCROLLING TEXT -->
+    <div class="scroll-container">
+      <div class="scroll-track">
+        <span>Breakdown // Repair // Recovery // Rescue // Breakdown // Repair // Recovery // Rescue // Breakdown // Repair // Recovery // Rescue //</span>
+        <span>Breakdown // Repair // Recovery // Rescue // Breakdown // Repair // Recovery // Rescue // Breakdown // Repair // Recovery // Rescue //</span>
+      </div>
     </div>
-    <p>© Copyright 2026</p>
-  </footer>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+      <div class="hero-overlay">
+        <div class="call-box">
+          <p>
+            Experts in vehicle, plant, and marine recovery, maintenance, and repairs,
+            offering thorough MOT preparation and precision bespoke fabrication services.
+          </p>
+
+          <h2>Call us Now!</h2>
+          <h3>+44 7901 742254</h3>
+        </div>
+
+        <div class="hero-buttons">
+          <a href="services.html" class="btn">SERVICES</a>
+          <a href="contact.html" class="btn">CONTACT US</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about-section">
+      <div class="about-inner">
+        <h2>About Jones Marine</h2>
+
+        <p>
+          Jones Marine provides professional vehicle, plant, and marine recovery,
+          repairs, and rescue services across the region. With years of hands-on
+          experience, we pride ourselves on fast response times, expert workmanship,
+          and dependable service—day or night.
+        </p>
+
+        <p>
+          From roadside breakdowns to marine recovery and bespoke fabrication,
+          our team is equipped to handle every job safely and efficiently.
+        </p>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="socials">
+        <a href="https://www.facebook.com/YOUR_PAGE_NAME" target="_blank" rel="noopener noreferrer">
+          <img src="images/facebook.png" alt="Facebook">
+        </a>
+
+        <a href="#" target="_blank" rel="noopener noreferrer">
+          <img src="images/location.png" alt="Location">
+        </a>
+      </div>
+
+      <p>© Copyright 2026</p>
+    </footer>
 
   </div>
+
+  <!-- Hamburger menu script -->
+  <script>
+    const header = document.querySelector('.header');
+    const btn = document.querySelector('.menu-toggle');
+
+    btn.addEventListener('click', () => {
+      const isOpen = header.classList.toggle('is-open');
+      btn.setAttribute('aria-expanded', String(isOpen));
+    });
+  </script>
 </body>
 </html>
+
+
 
 
