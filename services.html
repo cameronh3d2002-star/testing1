@@ -1,73 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link href="https://fonts.googleapis.com/css2?family=Sansita:wght@400;700;800&display=swap" rel="stylesheet">
   <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Jones Marine | Services</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Sansita:wght@400;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+  <div class="page-wrapper">
 
-<header class="header">
-  <h1>Jones Marine</h1>
-  <nav>
-    <a href="services.html" class="active">Services</a>
-    <a href="index.html">Home</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-</header>
+    <!-- HEADER (mobile hamburger ready) -->
+    <header class="header">
+      <div class="header-inner">
+        <a class="brand" href="index.html">Jones Marine</a>
 
-<!-- SCROLLING TEXT -->
-  <div class="scroll-container">
-  <div class="scroll-track">
-    <span>Breakdown // Repair // Recovery // Rescue // Breakdown // Repair // Recovery // Rescue // Breakdown // Repair // Recovery // Rescue // Breakdown // Repair // Recovery // Rescue //</span>
-    <span>Breakdown // Repair // Recovery // Rescue // Breakdown // Repair // Recovery // Rescue // Breakdown // Repair // Recovery // Rescue // Breakdown // Repair // Recovery // Rescue //</span>
+        <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <nav class="nav">
+          <a href="services.html" class="active">Services</a>
+          <a href="index.html">Home</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- SCROLLING TEXT -->
+    <div class="scroll-container">
+      <div class="scroll-track">
+        <span>Breakdown // Repair // Recovery // Rescue // Breakdown // Repair // Recovery // Rescue // Breakdown // Repair // Recovery // Rescue //</span>
+        <span>Breakdown // Repair // Recovery // Rescue // Breakdown // Repair // Recovery // Rescue // Breakdown // Repair // Recovery // Rescue //</span>
+      </div>
+    </div>
+
+    <!-- SERVICES -->
+    <section class="content-section">
+      <h2>Our Services</h2>
+
+      <div class="service-grid">
+        <div class="service-box">
+          <h3>Vehicle Breakdown & Recovery</h3>
+          <p>Rapid response recovery for cars, vans, and commercial vehicles.</p>
+        </div>
+
+        <div class="service-box">
+          <h3>Marine Recovery</h3>
+          <p>Specialist marine recovery services for inland and coastal operations.</p>
+        </div>
+
+        <div class="service-box">
+          <h3>Repairs & Maintenance</h3>
+          <p>Mechanical repairs, servicing, and preventative maintenance.</p>
+        </div>
+
+        <div class="service-box">
+          <h3>MOT Preparation</h3>
+          <p>Full vehicle inspections and preparation for MOT testing.</p>
+        </div>
+
+        <div class="service-box">
+          <h3>Bespoke Fabrication</h3>
+          <p>Custom fabrication solutions tailored to your needs.</p>
+        </div>
+
+        <div class="service-box">
+          <h3>Plant & Equipment Recovery</h3>
+          <p>Safe recovery and transport of plant machinery and equipment.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="socials">
+        <a href="https://www.facebook.com/YOUR_PAGE_NAME" target="_blank" rel="noopener noreferrer">
+          <img src="images/facebook.png" alt="Facebook">
+        </a>
+        <a href="#" target="_blank" rel="noopener noreferrer">
+          <img src="images/location.png" alt="Location">
+        </a>
+      </div>
+      <p>© Copyright 2026</p>
+    </footer>
+
   </div>
-</div>
 
-<section class="content-section">
-  <h2>Our Services</h2>
+  <!-- Hamburger menu script -->
+  <script>
+    const header = document.querySelector('.header');
+    const btn = document.querySelector('.menu-toggle');
 
-  <div class="service-grid">
-    <div class="service-box">
-      <h3>Vehicle Breakdown & Recovery</h3>
-      <p>Rapid response recovery for cars, vans, and commercial vehicles.</p>
-    </div>
-
-    <div class="service-box">
-      <h3>Marine Recovery</h3>
-      <p>Specialist marine recovery services for inland and coastal operations.</p>
-    </div>
-
-    <div class="service-box">
-      <h3>Repairs & Maintenance</h3>
-      <p>Mechanical repairs, servicing, and preventative maintenance.</p>
-    </div>
-
-    <div class="service-box">
-      <h3>MOT Preparation</h3>
-      <p>Full vehicle inspections and preparation for MOT testing.</p>
-    </div>
-
-    <div class="service-box">
-      <h3>Bespoke Fabrication</h3>
-      <p>Custom fabrication solutions tailored to your needs.</p>
-    </div>
-
-    <div class="service-box">
-      <h3>Plant & Equipment Recovery</h3>
-      <p>Safe recovery and transport of plant machinery and equipment.</p>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="socials">
-    <a href="#"><img src="images/facebook.png" alt="Facebook"></a>
-    <a href="#"><img src="images/location.png" alt="Location"></a>
-  </div>
-  <p>© Copyright 2026</p>
-</footer>
-
+    btn.addEventListener('click', () => {
+      const isOpen = header.classList.toggle('is-open');
+      btn.setAttribute('aria-expanded', String(isOpen));
+    });
+  </script>
 </body>
 </html>
