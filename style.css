@@ -249,6 +249,20 @@ footer {
    MOBILE / RESPONSIVE STYLES
    Add this at the bottom of style.css
 -------------------------------- */
+html, body {
+  height: 100%;
+}
+
+.page-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+footer {
+  margin-top: auto;
+}
+
 
 @media (max-width: 768px) {
 
@@ -387,5 +401,6 @@ footer {
     font-size: 16px;
   }
 }
+
 
 
