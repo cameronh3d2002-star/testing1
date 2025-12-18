@@ -100,6 +100,48 @@ p, a{
   background: var(--brand-red);
   border-radius: 2px;
 }
+/* ========== MOBILE SWITCH (LIKE YOUR SQUARESPACE SCREENSHOT) ========== */
+@media (max-width: 768px){
+
+  /* Header becomes: centered logo + hamburger, nav hidden */
+  .header-inner{
+    padding: 14px 14px;
+    text-align: center;
+  }
+
+  .brand{
+    font-size: 22px;   /* like your screenshot */
+    margin-bottom: 0;
+  }
+
+  .menu-toggle{
+    display: block;
+    top: 8px;
+  }
+
+  .nav{
+    display: none;
+    position: absolute;
+    top: 54px;
+    left: 0;
+    right: 0;
+    background: #fff;
+    padding: 12px 14px 18px;
+    flex-direction: column;
+    gap: 10px;
+    border-top: 1px solid #eee;
+  }
+
+  /* When header has .is-open (JS toggles this) show menu */
+  .header.is-open .nav{
+    display: flex;
+  }
+
+  .nav a{
+    padding: 10px 8px;
+    text-align: center;
+  }
+
 
 /* ========== SCROLLING TEXT (GAPLESS) ========== */
 .scroll-container{
@@ -290,48 +332,6 @@ footer{
   border: none;
 }
 
-/* ========== MOBILE SWITCH (LIKE YOUR SQUARESPACE SCREENSHOT) ========== */
-@media (max-width: 768px){
-
-  /* Header becomes: centered logo + hamburger, nav hidden */
-  .header-inner{
-    padding: 14px 14px;
-    text-align: center;
-  }
-
-  .brand{
-    font-size: 22px;   /* like your screenshot */
-    margin-bottom: 0;
-  }
-
-  .menu-toggle{
-    display: block;
-    top: 8px;
-  }
-
-  .nav{
-    display: none;
-    position: absolute;
-    top: 54px;
-    left: 0;
-    right: 0;
-    background: #fff;
-    padding: 12px 14px 18px;
-    flex-direction: column;
-    gap: 10px;
-    border-top: 1px solid #eee;
-  }
-
-  /* When header has .is-open (JS toggles this) show menu */
-  .header.is-open .nav{
-    display: flex;
-  }
-
-  .nav a{
-    padding: 10px 8px;
-    text-align: center;
-  }
-
   /* Marquee smaller on mobile */
   .scroll-track span{
     font-size: 14px;
@@ -422,3 +422,4 @@ footer{
 @media (max-width: 420px){
   .brand{ font-size: 20px; }
 }
+
