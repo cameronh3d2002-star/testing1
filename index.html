@@ -98,17 +98,26 @@
   </div>
 
   <!-- Hamburger menu script -->
-  <script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
     const header = document.querySelector('.header');
     const btn = document.querySelector('.menu-toggle');
 
+    if (!header || !btn) {
+      console.log("Hamburger not found on index page");
+      return;
+    }
+
     btn.addEventListener('click', () => {
-      const isOpen = header.classList.toggle('is-open');
-      btn.setAttribute('aria-expanded', String(isOpen));
+      header.classList.toggle('is-open');
+      btn.setAttribute('aria-expanded', header.classList.contains('is-open'));
     });
-  </script>
+  });
+</script>
+
 </body>
 </html>
+
 
 
 
