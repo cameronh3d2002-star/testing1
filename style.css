@@ -43,6 +43,12 @@ p, a{
 }
 
 /* ========== HEADER (DESKTOP DEFAULT) ========== */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 10000;
+  background: #fff;
+}
 .header{
   background: #fff;
 }
@@ -422,4 +428,5 @@ footer{
 @media (max-width: 420px){
   .brand{ font-size: 20px; }
 }
+
 
