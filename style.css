@@ -1,3 +1,7 @@
+/* ==============================
+   JONES MARINE - GLOBAL STYLES
+   ============================== */
+
 /* ========== BASE ========== */
 :root{
   --brand-red: #FF0000;
@@ -21,6 +25,7 @@ body{
   font-family: 'Sansita', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden; /* important for marquee overflow */
 }
 
 /* Push footer to bottom on short pages */
@@ -29,27 +34,20 @@ body{
   display: flex;
   flex-direction: column;
 }
-footer{
-  margin-top: auto;
-}
+footer{ margin-top: auto; }
 
 /* Typography */
 h1, h2, h3{
   font-family: 'Sansita', sans-serif;
   font-weight: 800;
 }
-p, a{
-  font-weight: 400;
-}
+p, a{ font-weight: 400; }
 
 /* ========== HEADER (DESKTOP DEFAULT) ========== */
-.header {
+.header{
   position: sticky;
   top: 0;
   z-index: 10000;
-  background: #fff;
-}
-.header{
   background: #fff;
 }
 
@@ -74,6 +72,9 @@ p, a{
 .nav{
   display: inline-flex;
   gap: 28px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .nav a{
@@ -106,49 +107,6 @@ p, a{
   background: var(--brand-red);
   border-radius: 2px;
 }
-/* ========== MOBILE SWITCH (LIKE YOUR SQUARESPACE SCREENSHOT) ========== */
-@media (max-width: 768px){
-
-  /* Header becomes: centered logo + hamburger, nav hidden */
-  .header-inner{
-    padding: 14px 14px;
-    text-align: center;
-  }
-
-  .brand{
-    font-size: 22px;   /* like your screenshot */
-    margin-bottom: 0;
-  }
-
-  .menu-toggle{
-    display: block;
-    top: 8px;
-  }
-
-  .nav{
-    display: none;
-    position: absolute;
-    top: 54px;
-    left: 0;
-    right: 0;
-    background: #fff;
-    padding: 12px 14px 18px;
-    flex-direction: column;
-    gap: 10px;
-    border-top: 1px solid #eee;
-  }
-
-  /* When header has .is-open (JS toggles this) show menu */
-  .header.is-open .nav{
-    display: flex;
-  }
-
-  .nav a{
-    padding: 10px 8px;
-    text-align: center;
-  }
-} 
-
 
 /* ========== SCROLLING TEXT (GAPLESS) ========== */
 .scroll-container{
@@ -167,7 +125,7 @@ p, a{
   padding-right: 40px;
   color: var(--brand-red);
   font-weight: 800;
-  font-size: 40px;
+  font-size: clamp(14px, 2.2vw, 26px); /* responsive */
 }
 
 @keyframes marquee{
@@ -182,6 +140,12 @@ p, a{
   position: relative;
 }
 
+.hero,
+.hero-overlay{
+  position: relative;
+  z-index: 0;
+}
+
 .hero-overlay{
   background: rgba(0,0,0,0.55);
   color: #fff;
@@ -192,49 +156,38 @@ p, a{
   align-items: center;
   text-align: center;
   padding: 20px;
+  width: 100%;
 }
+
+/* allow clicks to pass through overlay except buttons/boxes */
+.hero-overlay{ pointer-events: none; }
+.hero-overlay .hero-buttons,
+.hero-overlay .call-box{ pointer-events: auto; }
 
 .hero-overlay p{
   max-width: 900px;
-  font-size: 30px;
+  font-size: clamp(14px, 1.8vw, 22px);
   margin-bottom: 18px;
-}
-.hero,
-.hero-overlay {
-  position: relative;
-  z-index: 0;
-}
-
-/* allow clicks to pass through the hero overlay */
-.hero-overlay {
-  pointer-events: none;
-}
-
-/* BUT keep buttons clickable */
-.hero-overlay .hero-buttons,
-.hero-overlay .call-box {
-  pointer-events: auto;
-}
-
-.hero-overlay h2{
-  margin-bottom: 5px;
+  line-height: 1.4;
 }
 
 .call-box h2{
-  font-size: 32px;
+  font-size: clamp(20px, 2.6vw, 34px);
   font-weight: 800;
   letter-spacing: 1px;
 }
+
 .call-box h3{
-  font-size: 24px;
+  font-size: clamp(16px, 2vw, 26px);
   font-weight: 700;
 }
 
-/* Buttons */
 .hero-buttons{
   margin-top: 20px;
   display: flex;
   gap: 18px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .btn{
@@ -244,6 +197,8 @@ p, a{
   text-decoration: none;
   font-weight: 800;
   border: 2px solid #fff;
+  text-align: center;
+  min-width: 220px;
 }
 
 .btn:hover{
@@ -283,17 +238,9 @@ p, a{
   height: 200px;
 }
 
-.info-box{
-  flex: 1;
-}
-
-.info-box.red{
-  background: var(--brand-red);
-}
-
-.info-box.grey{
-  background: #999;
-}
+.info-box{ flex: 1; }
+.info-box.red{ background: var(--brand-red); }
+.info-box.grey{ background: #999; }
 
 /* ========== FOOTER ========== */
 footer{
@@ -328,6 +275,7 @@ footer{
   background: #fff;
   padding: 25px;
   border-left: 5px solid var(--brand-red);
+  text-align: left;
 }
 
 /* ========== CONTACT ========== */
@@ -355,13 +303,51 @@ footer{
   border: none;
 }
 
-  /* Marquee smaller on mobile */
-  .scroll-track span{
-    font-size: 14px;
-    padding-right: 10px;
+/* ==============================
+   MOBILE (SquareSpace-like)
+   ============================== */
+@media (max-width: 768px){
+
+  /* Header becomes: centered logo + hamburger, nav hidden */
+  .header-inner{
+    padding: 14px 14px;
+    text-align: center;
   }
 
-  /* Hero stacks naturally */
+  .brand{
+    font-size: 22px;
+    margin-bottom: 0;
+  }
+
+  .menu-toggle{
+    display: block;
+    top: 8px;
+  }
+
+  .nav{
+    display: none;
+    position: absolute;
+    top: 54px;
+    left: 0;
+    right: 0;
+    background: #fff;
+    padding: 12px 14px 18px;
+    flex-direction: column;
+    gap: 10px;
+    border-top: 1px solid #eee;
+  }
+
+  /* When header has .is-open (JS toggles this) show menu */
+  .header.is-open .nav{
+    display: flex;
+  }
+
+  .nav a{
+    padding: 10px 8px;
+    text-align: center;
+  }
+
+  /* Hero */
   .hero{
     height: auto;
     min-height: 420px;
@@ -371,42 +357,28 @@ footer{
     padding: 22px 14px;
   }
 
-  .hero-overlay p{
-    font-size: 16px;
-    margin-bottom: 14px;
-  }
-
-  .call-box h2{
-    font-size: 22px;
-    margin-top: 6px;
-  }
-
-  .call-box h3{
-    font-size: 18px;
-  }
-
   /* Buttons vertical like Squarespace */
   .hero-buttons{
     flex-direction: column;
     width: 100%;
-    max-width: 320px;
+    max-width: 340px;
     gap: 12px;
     margin-top: 16px;
   }
 
   .btn{
     width: 100%;
-    text-align: center;
+    min-width: 0;
   }
 
   /* About section spacing like screenshot */
   .about-section{
     padding: 45px 18px;
-    text-align: left; /* optional: often feels more like Squarespace */
+    text-align: left;
   }
 
   .about-section h2{
-    font-size: 34px; /* matches your screenshot big "About Us" */
+    font-size: 34px;
     color: #000;
   }
 
@@ -446,6 +418,23 @@ footer{
   .brand{ font-size: 20px; }
 }
 
+/* ==============================
+   LANDSCAPE PHONE FIXES
+   ============================== */
+@media (max-width: 900px) and (orientation: landscape){
+  .hero{
+    min-height: 320px;
+    height: auto;
+  }
 
+  /* stop giant stacked buttons in landscape */
+  .hero-buttons{
+    flex-direction: row;
+    max-width: none;
+  }
 
-
+  .btn{
+    width: auto;
+    min-width: 180px;
+  }
+}
