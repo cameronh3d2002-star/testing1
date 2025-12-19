@@ -123,23 +123,27 @@ p, a{ font-weight: 400; }
 
 .scroll-track{
   display: flex;
-  width: 200%;
-  animation: marquee 18s linear infinite;
+  width: max-content;
+  will-change: transform;
+  animation: marquee 20s linear infinite;
 }
 
-.scroll-item{
-  width: 50%;
+.scroll-content{
   white-space: nowrap;
+  flex: 0 0 auto;
+  padding-right: 0;          /* no extra gap */
+  margin-right: 0;
+
   color: var(--brand-red);
   font-weight: 800;
   font-size: clamp(14px, 2.2vw, 26px);
 }
 
+/* move by exactly ONE content width */
 @keyframes marquee{
   from { transform: translateX(0); }
-  to   { transform: translateX(-10%); }
+  to   { transform: translateX(-50%); }
 }
-
 
 
 /* ========== HERO ========== */
@@ -465,6 +469,7 @@ footer{
     min-width: 180px;
   }
 }
+
 
 
 
