@@ -27,11 +27,29 @@
 
         <nav class="nav">
           <a href="services.html">Services</a>
-          <a href="index.html" class="active">Home</a>
-          <a href="contact.html">Contact</a>
+          <a href="index.html">Home</a>
+          <a href="contact.html" class="active">Contact</a>
         </nav>
       </div>
     </header>
+ 
+<!-- Hamburger menu script -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const header = document.querySelector('.header');
+    const btn = document.querySelector('.menu-toggle');
+
+    if (!header || !btn) {
+      console.log("Hamburger not found on index page");
+      return;
+    }
+
+    btn.addEventListener('click', () => {
+      header.classList.toggle('is-open');
+      btn.setAttribute('aria-expanded', header.classList.contains('is-open'));
+    });
+  });
+</script>
 
     <!-- SCROLLING TEXT -->
     <div class="scroll-container">
@@ -96,24 +114,7 @@
     </footer>
 
   </div>
-
-  <!-- Hamburger menu script -->
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const header = document.querySelector('.header');
-    const btn = document.querySelector('.menu-toggle');
-
-    if (!header || !btn) {
-      console.log("Hamburger not found on index page");
-      return;
-    }
-
-    btn.addEventListener('click', () => {
-      header.classList.toggle('is-open');
-      btn.setAttribute('aria-expanded', header.classList.contains('is-open'));
-    });
-  });
-</script>
+
 
 </body>
 </html>
