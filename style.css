@@ -427,6 +427,48 @@ footer{
     padding: 26px 16px;
   }
 }
+/* =========================
+   CONTACT – FORCE RED THEME
+   ========================= */
+
+.contact-info{
+  background: var(--brand-red);
+  color: #fff;
+}
+
+/* Contact card */
+.contact-card{
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.25);
+  color: #fff;
+}
+
+/* Headings */
+.contact-info h2{
+  color: #fff;
+}
+
+/* Rows */
+.contact-row{
+  border-bottom: 1px solid rgba(255,255,255,0.25);
+}
+
+.label,
+.value{
+  color: #fff;
+}
+
+/* Phone link */
+.contact-info a{
+  color: #fff;
+}
+
+/* Facebook button stays white for contrast */
+.facebook-cta{
+  background: #fff;
+  color: var(--brand-red);
+}
+
 
 /* ==============================
    MOBILE (SquareSpace-like)
@@ -588,6 +630,7 @@ footer{
   flex-shrink: 0;
   display: inline-block;
 }
+
 
 
 
