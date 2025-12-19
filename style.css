@@ -547,7 +547,7 @@ footer{
 }
 /* ===== Desktop contact page: force red theme ===== */
 @media (min-width: 769px){
-  .contact-info{
+  .contact-info a:not(.facebook-cta){
     background: var(--brand-red) !important;
     color: #fff !important;
   }
@@ -570,6 +570,7 @@ footer{
     color: var(--brand-red) !important;
   }
 }
+
 
 
 
