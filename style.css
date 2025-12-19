@@ -481,7 +481,7 @@ footer{
 
   .about-section h2{
     font-size: 34px;
-    color: #000;
+    color: var(--brand-red);
   }
 
   .about-section p{
@@ -564,5 +564,6 @@ footer{
     border-color: rgba(255,255,255,0.25) !important;
   }
 }
+
 
 
