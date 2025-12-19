@@ -300,36 +300,110 @@ footer{
   line-height: 1.5;
 }
 
-/* ========== CONTACT ========== */
-/* ===== CONTACT LAYOUT (desktop) ===== */
+/* ========== CONTACT (single source of truth) ========== */
 .contact-section{
   display: grid;
-  grid-template-columns: 1fr 1fr; /* left info, right map */
-  gap: 0;
+  grid-template-columns: 1fr 1fr;
   min-height: 520px;
 }
 
 .contact-info{
+  background: var(--brand-red);
+  color: #fff;
   padding: 50px 40px;
 }
 
-/* Map container must clip + control the iframe */
+.contact-info h2{
+  color: #fff;
+  margin-bottom: 14px;
+}
+
+/* Card inside red panel */
+.contact-card{
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 12px;
+  padding: 16px;
+  max-width: 520px;
+}
+
+/* Rows */
+.contact-row{
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.22);
+}
+
+.contact-row:last-of-type{
+  border-bottom: none;
+}
+
+.label{
+  font-weight: 800;
+  color: #fff;
+  opacity: 0.95;
+}
+
+.value{
+  font-weight: 700;
+  color: #fff;
+  text-align: right;
+}
+
+/* Phone link */
+.phone-link{
+  color: #fff;
+  text-decoration: underline;
+  font-weight: 800;
+}
+
+/* Facebook CTA (white button for contrast) */
+.facebook-cta{
+  margin-top: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  background: #fff;
+  color: var(--brand-red);
+  text-decoration: none;
+  font-weight: 900;
+
+  padding: 12px 14px;
+  border-radius: 10px;
+  width: 100%;
+}
+
+/* Force icon size no matter what other img rules exist */
+.facebook-cta img{
+  width: 18px !important;
+  height: 18px !important;
+  max-width: 18px !important;
+  max-height: 18px !important;
+  object-fit: contain;
+  flex-shrink: 0;
+  display: inline-block;
+}
+
+/* Map: contained and fills its grid cell */
 .map-container{
   position: relative;
-  overflow: hidden;     /* <-- contains the map */
+  overflow: hidden;
   min-height: 520px;
 }
 
 .map-container iframe{
   position: absolute;
-  inset: 0;             /* top:0 right:0 bottom:0 left:0 */
+  inset: 0;
   width: 100%;
   height: 100%;
   border: 0;
   display: block;
 }
 
-/* ===== MOBILE: stack nicely ===== */
+/* Mobile: stack */
 @media (max-width: 768px){
   .contact-section{
     grid-template-columns: 1fr;
@@ -343,130 +417,6 @@ footer{
   .map-container{
     min-height: 360px;
   }
-}
-.map-container{
-  border-left: 1px solid rgba(0,0,0,0.08);
-}
-@media (max-width: 768px){
-  .map-container{
-    border-left: none;
-    border-top: 1px solid rgba(0,0,0,0.08);
-  }
-}
-
-/* ===== Contact page clean mobile card ===== */
-.contact-info h2{
-  margin-bottom: 14px;
-}
-
-.contact-card{
-  background: rgba(255,255,255,0.12);
-  border: 1px solid rgba(255,255,255,0.25);
-  border-radius: 12px;
-  padding: 16px;
-  max-width: 520px;
-}
-
-.contact-row{
-  display: flex;
-  justify-content: space-between;
-  gap: 14px;
-  padding: 10px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.22);
-}
-
-.contact-row:last-of-type{
-  border-bottom: none;
-}
-
-.label{
-  opacity: 0.9;
-  font-weight: 700;
-}
-
-.value{
-  text-align: right;
-  font-weight: 600;
-}
-
-/* Facebook call-to-action */
-.facebook-cta{
-  margin-top: 14px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-
-  background: #fff;
-  color: var(--brand-red);
-  text-decoration: none;
-  font-weight: 800;
-
-  padding: 12px 14px;
-  border-radius: 10px;
-}
-
-.contact-info .facebook-cta img{
-  width: 20px !important;
-  height: 20px !important;
-  object-fit: contain;
-}
-
-@media (hover: hover){
-  .facebook-cta:hover{
-    opacity: 0.9;
-  }
-}
-
-/* Make the map a bit taller + cleaner on mobile */
-@media (max-width: 768px){
-  .map-container{
-    min-height: 380px; /* taller than before */
-  }
-
-  .contact-info{
-    padding: 26px 16px;
-  }
-}
-/* =========================
-   CONTACT – FORCE RED THEME
-   ========================= */
-
-.contact-info{
-  background: var(--brand-red);
-  color: #fff;
-}
-
-/* Contact card */
-.contact-card{
-  background: rgba(255,255,255,0.12);
-  border: 1px solid rgba(255,255,255,0.25);
-  color: #fff;
-}
-
-/* Headings */
-.contact-info h2{
-  color: #fff;
-}
-
-/* Rows */
-.contact-row{
-  border-bottom: 1px solid rgba(255,255,255,0.25);
-}
-
-.label,
-.value{
-  color: #fff;
-}
-
-/* Phone link */
-.contact-info a{
-  color: #fff;
-}
-
-/* Facebook button stays white for contrast */
-.facebook-cta{
-  background: #fff;
-  color: var(--brand-red);
 }
 
 
@@ -630,6 +580,7 @@ footer{
   flex-shrink: 0;
   display: inline-block;
 }
+
 
 
 
