@@ -417,6 +417,19 @@ footer{
 @media (max-width: 420px){
   .brand{ font-size: 20px; }
 }
+/* ========== CLICK-TO-CALL LINK ========== */
+.phone-link{
+  color: inherit;
+  text-decoration: underline;
+  font-weight: 700;
+}
+
+@media (hover: hover){
+  .phone-link:hover{
+    opacity: 0.8;
+  }
+}
+
 
 /* ==============================
    LANDSCAPE PHONE FIXES
@@ -438,3 +451,4 @@ footer{
     min-width: 180px;
   }
 }
+
