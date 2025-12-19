@@ -123,24 +123,24 @@ p, a{ font-weight: 400; }
 
 .scroll-track{
   display: flex;
-  width: fit-content;
+  width: 200%;
   animation: marquee 18s linear infinite;
 }
 
-.scroll-track span{
+.scroll-item{
+  width: 50%;
   white-space: nowrap;
-  padding-right: 0; /* ❌ remove padding that causes gaps */
-  margin-right: 0;
+
   color: var(--brand-red);
   font-weight: 800;
   font-size: clamp(14px, 2.2vw, 26px);
 }
 
-/* key fix: move EXACTLY half the track */
 @keyframes marquee{
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
 }
+
 
 /* ========== HERO ========== */
 .hero{
@@ -465,6 +465,7 @@ footer{
     min-width: 180px;
   }
 }
+
 
 
 
