@@ -546,6 +546,18 @@ footer{
     min-width: 180px;
   }
 }
+.facebook-cta img{
+  width: 18px !important;
+  height: 18px !important;
+  max-width: 18px !important;
+  max-height: 18px !important;
+  min-width: 18px !important;
+  min-height: 18px !important;
+
+  object-fit: contain;
+  flex-shrink: 0;
+  display: inline-block;
+}
 
 
 
