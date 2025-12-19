@@ -2,9 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>Jones Marine | Services</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Sansita:wght@400;700;800&display=swap" rel="stylesheet">
@@ -14,18 +12,18 @@
 <body>
   <div class="page-wrapper">
 
-    <!-- HEADER (mobile hamburger ready) -->
+    <!-- HEADER -->
     <header class="header">
       <div class="header-inner">
         <a class="brand" href="index.html">Jones Marine</a>
 
-        <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">
+        <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">
           <span></span>
           <span></span>
           <span></span>
         </button>
 
-        <nav class="nav">
+        <nav class="nav" aria-label="Primary">
           <a href="services.html" class="active">Services</a>
           <a href="index.html">Home</a>
           <a href="contact.html">Contact</a>
@@ -88,17 +86,27 @@
         <a href="https://share.google/fp09fJCc30e1kBlGS" target="_blank" rel="noopener noreferrer">
           <img src="images/location.png" alt="Location">
         </a>
-      </div
+      </div>
+
+      <p>© Copyright 2026</p>
+    </footer>
+
+  </div>
 
   <!-- Hamburger menu script -->
   <script>
-    const header = document.querySelector('.header');
-    const btn = document.querySelector('.menu-toggle');
+    document.addEventListener('DOMContentLoaded', () => {
+      const header = document.querySelector('.header');
+      const btn = document.querySelector('.menu-toggle');
+      if (!header || !btn) return;
 
-    btn.addEventListener('click', () => {
-      const isOpen = header.classList.toggle('is-open');
-      btn.setAttribute('aria-expanded', String(isOpen));
+      btn.addEventListener('click', () => {
+        const isOpen = header.classList.toggle('is-open');
+        btn.setAttribute('aria-expanded', String(isOpen));
+      });
     });
   </script>
 </body>
 </html>
+
+
