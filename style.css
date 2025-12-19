@@ -114,7 +114,6 @@ p, a{ font-weight: 400; }
   border-radius: 2px;
 }
 
-/* ========== SCROLLING TEXT (GAPLESS) ========== */
 /* ========== SCROLLING TEXT (SEAMLESS) ========== */
 .scroll-container{
   background: var(--light-gray);
@@ -312,7 +311,7 @@ footer{
   flex: 1;
   background: var(--brand-red);
   color: #fff;
-  padding: 40px;
+  padding: 80px;
 }
 
 .map-container{
@@ -474,6 +473,7 @@ footer{
     min-width: 180px;
   }
 }
+
 
 
 
