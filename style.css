@@ -112,7 +112,7 @@ p, a{ font-weight: 400; }
   border-radius: 2px;
 }
 
-/* ========== SCROLLING TEXT (SEAMLESS) ========== */
+/* ========== SCROLLING TEXT (SEAMLESS / NO GAPS) ========== */
 .scroll-container{
   background: var(--light-gray);
   overflow: hidden;
@@ -123,11 +123,12 @@ p, a{ font-weight: 400; }
 
 .scroll-track{
   display: flex;
-  width: max-content;
+  width: max-content;      /* track is as wide as its content */
   will-change: transform;
-  animation: marquee 20s linear infinite;
+  animation: marquee 18s linear infinite;
 }
 
+/* Each copy */
 .scroll-content{
   flex: 0 0 auto;
   white-space: nowrap;
@@ -136,13 +137,14 @@ p, a{ font-weight: 400; }
   font-size: clamp(14px, 2.2vw, 26px);
   line-height: 1.2;
   padding: 8px 0;
+  margin: 0;              /* IMPORTANT: no margin/padding gaps */
 }
 
+/* Move exactly one copy’s width (because there are 2 copies) */
 @keyframes marquee{
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
 }
-
 /* ========== HERO ========== */
 .hero{
   background: url("images/background1.jpg") center/cover no-repeat;
@@ -570,6 +572,7 @@ footer{
     color: var(--brand-red) !important;
   }
 }
+
 
 
 
