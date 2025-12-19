@@ -278,6 +278,18 @@ footer{
   text-align: left;
 }
 
+.service-box{
+  border-radius: 6px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+.service-box h3{
+  margin-bottom: 8px;
+}
+.service-box p{
+  color: #333;
+  line-height: 1.5;
+}
+
 /* ========== CONTACT ========== */
 .contact-section{
   display: flex;
@@ -451,4 +463,5 @@ footer{
     min-width: 180px;
   }
 }
+
 
