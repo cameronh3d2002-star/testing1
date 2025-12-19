@@ -324,6 +324,78 @@ footer{
   height: 100%;
   border: none;
 }
+/* ===== Contact page clean mobile card ===== */
+.contact-info h2{
+  margin-bottom: 14px;
+}
+
+.contact-card{
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 12px;
+  padding: 16px;
+  max-width: 520px;
+}
+
+.contact-row{
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.22);
+}
+
+.contact-row:last-of-type{
+  border-bottom: none;
+}
+
+.label{
+  opacity: 0.9;
+  font-weight: 700;
+}
+
+.value{
+  text-align: right;
+  font-weight: 600;
+}
+
+/* Facebook call-to-action */
+.facebook-cta{
+  margin-top: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  background: #fff;
+  color: var(--brand-red);
+  text-decoration: none;
+  font-weight: 800;
+
+  padding: 12px 14px;
+  border-radius: 10px;
+}
+
+.facebook-cta img{
+  width: 26px;
+  height: 26px;
+}
+
+@media (hover: hover){
+  .facebook-cta:hover{
+    opacity: 0.9;
+  }
+}
+
+/* Make the map a bit taller + cleaner on mobile */
+@media (max-width: 768px){
+  .map-container{
+    min-height: 380px; /* taller than before */
+  }
+
+  .contact-info{
+    padding: 26px 16px;
+  }
+}
 
 /* ==============================
    MOBILE (SquareSpace-like)
@@ -473,6 +545,7 @@ footer{
     min-width: 180px;
   }
 }
+
 
 
 
