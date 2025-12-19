@@ -301,29 +301,59 @@ footer{
 }
 
 /* ========== CONTACT ========== */
+/* ===== CONTACT LAYOUT (desktop) ===== */
 .contact-section{
-  display: flex;
-  flex-wrap: wrap;
-  min-height: 400px;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* left info, right map */
+  gap: 0;
+  min-height: 520px;
 }
 
 .contact-info{
-  flex: 1;
-  background: var(--brand-red);
-  color: #fff;
-  padding: 40px;
+  padding: 50px 40px;
 }
 
+/* Map container must clip + control the iframe */
 .map-container{
-  flex: 1;
-  min-height: 400px;
+  position: relative;
+  overflow: hidden;     /* <-- contains the map */
+  min-height: 520px;
 }
 
 .map-container iframe{
+  position: absolute;
+  inset: 0;             /* top:0 right:0 bottom:0 left:0 */
   width: 100%;
   height: 100%;
-  border: none;
+  border: 0;
+  display: block;
 }
+
+/* ===== MOBILE: stack nicely ===== */
+@media (max-width: 768px){
+  .contact-section{
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .contact-info{
+    padding: 26px 16px;
+  }
+
+  .map-container{
+    min-height: 360px;
+  }
+}
+.map-container{
+  border-left: 1px solid rgba(0,0,0,0.08);
+}
+@media (max-width: 768px){
+  .map-container{
+    border-left: none;
+    border-top: 1px solid rgba(0,0,0,0.08);
+  }
+}
+
 /* ===== Contact page clean mobile card ===== */
 .contact-info h2{
   margin-bottom: 14px;
@@ -558,6 +588,7 @@ footer{
   flex-shrink: 0;
   display: inline-block;
 }
+
 
 
 
