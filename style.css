@@ -545,3 +545,24 @@ footer{
     min-width: 180px;
   }
 }
+/* ===== Desktop contact page: force red theme ===== */
+@media (min-width: 769px){
+  .contact-info{
+    background: var(--brand-red) !important;
+    color: #fff !important;
+  }
+
+  .contact-info h2,
+  .contact-info .label,
+  .contact-info .value,
+  .contact-info a{
+    color: #fff !important;
+  }
+
+  .contact-card{
+    background: rgba(255,255,255,0.12) !important;
+    border-color: rgba(255,255,255,0.25) !important;
+  }
+}
+
+
