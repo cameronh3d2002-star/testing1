@@ -555,7 +555,7 @@ footer{
   .contact-info h2,
   .contact-info .label,
   .contact-info .value,
-  .contact-info a{
+  .contact-info a:not(.facebook-cta){
     color: #fff !important;
   }
 
@@ -570,6 +570,7 @@ footer{
     color: var(--brand-red) !important;
   }
 }
+
 
 
 
