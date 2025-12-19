@@ -115,10 +115,13 @@ p, a{ font-weight: 400; }
 }
 
 /* ========== SCROLLING TEXT (GAPLESS) ========== */
+/* ========== SCROLLING TEXT (SEAMLESS) ========== */
 .scroll-container{
   background: var(--light-gray);
   overflow: hidden;
   width: 100%;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
 }
 
 .scroll-track{
@@ -129,21 +132,23 @@ p, a{ font-weight: 400; }
 }
 
 .scroll-content{
-  white-space: nowrap;
   flex: 0 0 auto;
-  padding-right: 0;          /* no extra gap */
-  margin-right: 0;
+  white-space: nowrap;
 
-  color: var(--brand-red);
+  /* force your brand red */
+  color: var(--brand-red) !important;
   font-weight: 800;
   font-size: clamp(14px, 2.2vw, 26px);
+  line-height: 1.2;
+  padding: 8px 0;
 }
 
-/* move by exactly ONE content width */
+/* Move by exactly one copy (half of the track) */
 @keyframes marquee{
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
 }
+
 
 
 /* ========== HERO ========== */
@@ -469,6 +474,7 @@ footer{
     min-width: 180px;
   }
 }
+
 
 
 
