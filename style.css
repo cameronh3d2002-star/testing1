@@ -483,7 +483,6 @@ footer{
     font-size: 34px;
     color: var(--brand-red);
   }
-}
 
   .about-section p{
     font-size: 16px;
@@ -565,6 +564,13 @@ footer{
     border-color: rgba(255,255,255,0.25) !important;
   }
 }
+/* ===== FORCE About heading colour on mobile portrait ===== */
+@media (max-width: 768px) and (orientation: portrait){
+  .about-section h2{
+    color: var(--brand-red) !important;
+  }
+}
+
 
 
 
