@@ -311,7 +311,7 @@ footer{
   flex: 1;
   background: var(--brand-red);
   color: #fff;
-  padding: 80px;
+  padding: 40px;
 }
 
 .map-container{
@@ -473,6 +473,7 @@ footer{
     min-width: 180px;
   }
 }
+
 
 
 
