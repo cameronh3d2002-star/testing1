@@ -384,7 +384,7 @@ footer{
 
   .about-section h2{
     font-size: 34px;
-    color: #000;
+    color: #FF000;
   }
 
   .about-section p{
@@ -456,6 +456,7 @@ footer{
     min-width: 180px;
   }
 }
+
 
 
 
