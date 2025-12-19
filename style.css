@@ -147,6 +147,7 @@ p, a{
     padding: 10px 8px;
     text-align: center;
   }
+} 
 
 
 /* ========== SCROLLING TEXT (GAPLESS) ========== */
@@ -444,6 +445,7 @@ footer{
 @media (max-width: 420px){
   .brand{ font-size: 20px; }
 }
+
 
 
 
