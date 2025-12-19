@@ -2,9 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>Jones Marine</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Sansita:wght@400;700;800&display=swap" rel="stylesheet">
@@ -19,37 +17,19 @@
       <div class="header-inner">
         <a class="brand" href="index.html">Jones Marine</a>
 
-        <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">
+        <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">
           <span></span>
           <span></span>
           <span></span>
         </button>
 
-        <nav class="nav">
+        <nav class="nav" aria-label="Primary">
           <a href="services.html">Services</a>
-          <a href="index.html">Home</a>
-          <a href="contact.html" class="active">Contact</a>
+          <a href="index.html" class="active">Home</a>
+          <a href="contact.html">Contact</a>
         </nav>
       </div>
     </header>
- 
-<!-- Hamburger menu script -->
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const header = document.querySelector('.header');
-    const btn = document.querySelector('.menu-toggle');
-
-    if (!header || !btn) {
-      console.log("Hamburger not found on index page");
-      return;
-    }
-
-    btn.addEventListener('click', () => {
-      header.classList.toggle('is-open');
-      btn.setAttribute('aria-expanded', header.classList.contains('is-open'));
-    });
-  });
-</script>
 
     <!-- SCROLLING TEXT -->
     <div class="scroll-container">
@@ -114,8 +94,21 @@
     </footer>
 
   </div>
-
 
+  <!-- Hamburger menu script (best placed at end) -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const header = document.querySelector('.header');
+      const btn = document.querySelector('.menu-toggle');
+
+      if (!header || !btn) return;
+
+      btn.addEventListener('click', () => {
+        header.classList.toggle('is-open');
+        btn.setAttribute('aria-expanded', header.classList.contains('is-open'));
+      });
+    });
+  </script>
 </body>
 </html>
 
