@@ -376,8 +376,8 @@ footer{
 }
 
 .facebook-cta img{
-  width: 26px;
-  height: 26px;
+  width: 5px;
+  height: 5px;
 }
 
 @media (hover: hover){
@@ -545,6 +545,7 @@ footer{
     min-width: 180px;
   }
 }
+
 
 
 
