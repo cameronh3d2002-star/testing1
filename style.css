@@ -51,30 +51,36 @@ p, a{ font-weight: 400; }
   background: #fff;
 }
 
+/* ===== HEADER (desktop baseline) ===== */
 .header-inner{
   max-width: 1200px;
   margin: 0 auto;
   padding: 26px 14px;
-  text-align: center;
   position: relative;
+
+  /* key fix */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
 }
 
 .brand{
-  display: inline-block;
   color: var(--brand-red);
   text-decoration: none;
   font-size: 48px;
   font-weight: 800;
   line-height: 1;
-  margin-bottom: 10px;
+  margin: 0; /* remove margin-bottom quirks */
 }
 
 .nav{
-  display: inline-flex;
-  gap: 28px;
-  align-items: center;
+  display: flex;              /* not inline-flex */
   justify-content: center;
+  align-items: center;
+  gap: 28px;
   flex-wrap: wrap;
+  width: 100%;
 }
 
 .nav a{
@@ -456,6 +462,7 @@ footer{
     min-width: 180px;
   }
 }
+
 
 
 
