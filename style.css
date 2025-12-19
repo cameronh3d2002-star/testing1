@@ -28,7 +28,7 @@ body{
   overflow-x: hidden;
 }
 
-/* Push footer to bottom on short pages */
+/* Push footer */
 .page-wrapper{
   min-height: 100vh;
   display: flex;
@@ -43,7 +43,7 @@ h1, h2, h3{
 }
 p, a{ font-weight: 400; }
 
-/* ========== HEADER (DESKTOP DEFAULT) ========== */
+/* ================= HEADER ================= */
 .header{
   position: sticky;
   top: 0;
@@ -56,7 +56,6 @@ p, a{ font-weight: 400; }
   margin: 0 auto;
   padding: 26px 14px;
   position: relative;
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -67,31 +66,23 @@ p, a{ font-weight: 400; }
   color: var(--brand-red);
   text-decoration: none;
   font-size: 48px;
-  font-weight: 800;
   line-height: 1;
-  margin: 0;
 }
 
 .nav{
   display: flex;
-  justify-content: center;
-  align-items: center;
   gap: 28px;
-  flex-wrap: wrap;
-  width: 100%;
 }
 
 .nav a{
-  text-decoration: none;
   color: var(--brand-red);
+  text-decoration: none;
   font-weight: 700;
 }
 
-.nav a.active{
-  text-decoration: underline;
-}
+.nav a.active{ text-decoration: underline; }
 
-/* Hamburger hidden on desktop */
+/* Hamburger */
 .menu-toggle{
   display: none;
   position: absolute;
@@ -99,9 +90,8 @@ p, a{ font-weight: 400; }
   top: 22px;
   width: 44px;
   height: 44px;
-  border: 0;
   background: transparent;
-  cursor: pointer;
+  border: 0;
 }
 
 .menu-toggle span{
@@ -109,14 +99,12 @@ p, a{ font-weight: 400; }
   height: 3px;
   margin: 7px 0;
   background: var(--brand-red);
-  border-radius: 2px;
 }
 
-/* ========== SCROLLING TEXT (SEAMLESS) ========== */
+/* ================= MARQUEE ================= */
 .scroll-container{
   background: var(--light-gray);
   overflow: hidden;
-  width: 100%;
   border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
 }
@@ -124,161 +112,99 @@ p, a{ font-weight: 400; }
 .scroll-track{
   display: flex;
   width: max-content;
-  will-change: transform;
   animation: marquee 20s linear infinite;
 }
 
 .scroll-content{
-  flex: 0 0 auto;
   white-space: nowrap;
   color: var(--brand-red);
   font-weight: 800;
   font-size: clamp(14px, 2.2vw, 26px);
-  line-height: 1.2;
   padding: 8px 0;
 }
 
 @keyframes marquee{
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
+  from{ transform: translateX(0); }
+  to{ transform: translateX(-50%); }
 }
 
-/* ========== HERO ========== */
+/* ================= HERO ================= */
 .hero{
   background: url("images/background1.jpg") center/cover no-repeat;
   height: 450px;
-  position: relative;
-}
-
-.hero,
-.hero-overlay{
-  position: relative;
-  z-index: 0;
 }
 
 .hero-overlay{
   background: rgba(0,0,0,0.55);
-  color: #fff;
   height: 100%;
+  color: #fff;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
   padding: 20px;
-  width: 100%;
+  pointer-events: none;
 }
 
-/* allow clicks to pass through overlay except buttons/boxes */
-.hero-overlay{ pointer-events: none; }
-.hero-overlay .hero-buttons,
-.hero-overlay .call-box{ pointer-events: auto; }
+.hero-overlay .call-box,
+.hero-overlay .hero-buttons{
+  pointer-events: auto;
+}
 
 .hero-overlay p{
   max-width: 900px;
   font-size: clamp(14px, 1.8vw, 22px);
-  margin-bottom: 18px;
-  line-height: 1.4;
 }
 
-.call-box h2{
-  font-size: clamp(20px, 2.6vw, 34px);
-  font-weight: 800;
-  letter-spacing: 1px;
-}
-
-.call-box h3{
-  font-size: clamp(16px, 2vw, 26px);
-  font-weight: 700;
-}
-
-/* Buttons */
 .hero-buttons{
   margin-top: 20px;
   display: flex;
   gap: 18px;
-  flex-wrap: wrap;
-  justify-content: center;
 }
 
 .btn{
   background: #fff;
   color: var(--brand-red);
   padding: 12px 30px;
-  text-decoration: none;
-  font-weight: 800;
   border: 2px solid #fff;
-  text-align: center;
-  min-width: 220px;
+  font-weight: 800;
+  text-decoration: none;
 }
 
-.btn:hover{
-  background: transparent;
-  color: #fff;
-}
-
-/* ========== ABOUT SECTION ========== */
+/* ================= ABOUT ================= */
 .about-section{
-  background: #ffffff;
+  background: #fff;
   padding: 70px 40px;
   text-align: center;
 }
 
 .about-inner{
   max-width: 900px;
-  margin: 0 auto;
+  margin: auto;
 }
 
 .about-section h2{
   color: var(--brand-red);
   font-size: 34px;
   margin-bottom: 25px;
-  font-weight: 800;
 }
 
 .about-section p{
+  color: #333;
   font-size: 18px;
   line-height: 1.7;
-  margin-bottom: 18px;
-  color: #333;
 }
 
-/* ========== INFO BOXES ========== */
-.info-section{
-  display: flex;
-  height: 200px;
-}
-
-.info-box{ flex: 1; }
-.info-box.red{ background: var(--brand-red); }
-.info-box.grey{ background: #999; }
-
-/* ========== FOOTER ========== */
-footer{
-  background: #eee;
-  text-align: center;
-  padding: 20px;
-}
-
-.socials img{
-  width: 30px;
-  margin: 0 10px;
-}
-
-/* ========== SERVICES ========== */
+/* ================= SERVICES ================= */
 .content-section{
   padding: 60px 40px;
   text-align: center;
 }
 
-.content-section h2{
-  color: var(--brand-red);
-  margin-bottom: 40px;
-}
-
 .service-grid{
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
   gap: 30px;
 }
 
@@ -287,22 +213,10 @@ footer{
   padding: 28px;
   border-left: 5px solid var(--brand-red);
   border-radius: 10px;
-  box-shadow: 0 10px 28px rgba(0,0,0,0.10);
-  text-align: left;
+  box-shadow: 0 10px 28px rgba(0,0,0,0.1);
 }
 
-.service-box h3{
-  margin-bottom: 10px;
-  font-weight: 800;
-  color: #111;
-}
-
-.service-box p{
-  color: #333;
-  line-height: 1.55;
-}
-
-/* ========== CONTACT (single source of truth) ========== */
+/* ================= CONTACT ================= */
 .contact-section{
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -315,12 +229,6 @@ footer{
   padding: 50px 40px;
 }
 
-.contact-info h2{
-  color: #fff;
-  margin-bottom: 14px;
-}
-
-/* Card inside red panel */
 .contact-card{
   background: rgba(255,255,255,0.12);
   border: 1px solid rgba(255,255,255,0.25);
@@ -329,40 +237,17 @@ footer{
   max-width: 520px;
 }
 
-/* Rows */
 .contact-row{
   display: flex;
   justify-content: space-between;
-  gap: 14px;
   padding: 12px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.22);
+  border-bottom: 1px solid rgba(255,255,255,0.25);
 }
 
-.contact-row:last-of-type{
-  border-bottom: none;
-}
-
-.label{
-  font-weight: 800;
-  color: #fff;
-  opacity: 0.95;
-}
-
-.value{
-  font-weight: 700;
-  color: #fff;
-  text-align: right;
-}
-
-/* Click-to-call link (contact + anywhere else) */
 .phone-link{
   color: #fff;
   text-decoration: underline;
   font-weight: 800;
-}
-
-@media (hover: hover){
-  .phone-link:hover{ opacity: 0.85; }
 }
 
 /* Facebook CTA */
@@ -371,32 +256,26 @@ footer{
   display: inline-flex;
   align-items: center;
   gap: 10px;
-
   background: #fff;
   color: var(--brand-red);
-  text-decoration: none;
-  font-weight: 900;
-
   padding: 12px 14px;
   border-radius: 10px;
-  width: 100%;
+  text-decoration: none;
+  font-weight: 900;
 }
+
+.facebook-cta span{ color: var(--brand-red); }
 
 .facebook-cta img{
-  width: 18px !important;
-  height: 18px !important;
-  max-width: 18px !important;
-  max-height: 18px !important;
+  width: 18px;
+  height: 18px;
   object-fit: contain;
-  flex-shrink: 0;
-  display: inline-block;
 }
 
-/* Map: contained and fills its grid cell */
+/* Map */
 .map-container{
   position: relative;
   overflow: hidden;
-  min-height: 520px;
 }
 
 .map-container iframe{
@@ -405,27 +284,12 @@ footer{
   width: 100%;
   height: 100%;
   border: 0;
-  display: block;
 }
 
-/* ==============================
-   MOBILE (SquareSpace-like)
-   ============================== */
+/* ================= MOBILE ================= */
 @media (max-width: 768px){
 
-  /* Header becomes: centered logo + hamburger, nav hidden */
-  .header-inner{
-    padding: 14px 14px;
-  }
-
-  .brand{
-    font-size: 22px;
-  }
-
-  .menu-toggle{
-    display: block;
-    top: 8px;
-  }
+  .menu-toggle{ display: block; top: 8px; }
 
   .nav{
     display: none;
@@ -434,146 +298,37 @@ footer{
     left: 0;
     right: 0;
     background: #fff;
-    padding: 12px 14px 18px;
     flex-direction: column;
-    gap: 10px;
-    border-top: 1px solid #eee;
   }
 
-  .header.is-open .nav{
-    display: flex;
-  }
+  .header.is-open .nav{ display: flex; }
 
-  .nav a{
-    padding: 10px 8px;
-    text-align: center;
-  }
+  .hero{ height: auto; }
 
-  /* Hero */
-  .hero{
-    height: auto;
-    min-height: 420px;
-  }
-
-  .hero-overlay{
-    padding: 22px 14px;
-  }
-
-  /* Buttons vertical */
   .hero-buttons{
     flex-direction: column;
-    width: 100%;
     max-width: 340px;
-    gap: 12px;
-    margin-top: 16px;
   }
 
-  .btn{
-    width: 100%;
-    min-width: 0;
-  }
-
-  /* About */
   .about-section{
     padding: 45px 18px;
     text-align: left;
   }
 
   .about-section h2{
-    font-size: 34px;
     color: var(--brand-red);
   }
 
-  .about-section p{
-    font-size: 16px;
-  }
-
-  /* Info boxes stack */
-  .info-section{
-    flex-direction: column;
-    height: auto;
-  }
-
-  .info-box{
-    height: 140px;
-  }
-
-  /* Contact stacks correctly (GRID) */
   .contact-section{
     grid-template-columns: 1fr;
-    min-height: auto;
-  }
-
-  .contact-info{
-    padding: 26px 16px;
   }
 
   .map-container{
     min-height: 360px;
   }
-
-  .socials img{
-    width: 36px;
-  }
-
-  /* Services grid tighter */
-  .service-grid{
-    gap: 16px;
-  }
 }
 
-@media (max-width: 420px){
-  .brand{ font-size: 20px; }
-}
-
-/* ==============================
-   LANDSCAPE PHONE FIXES
-   ============================== */
+/* ================= LANDSCAPE ================= */
 @media (max-width: 900px) and (orientation: landscape){
-  .hero{
-    min-height: 320px;
-    height: auto;
-  }
-
-  .hero-buttons{
-    flex-direction: row;
-    max-width: none;
-  }
-
-  .btn{
-    width: auto;
-    min-width: 180px;
-  }
+  .hero-buttons{ flex-direction: row; }
 }
-/* ===== Desktop contact page: force red theme ===== */
-@media (min-width: 769px){
-  .contact-info a:not(.facebook-cta){
-    background: var(--brand-red) !important;
-    color: #fff !important;
-  }
-
-  .contact-info h2,
-  .contact-info .label,
-  .contact-info .value,
-  .contact-info a:not(.facebook-cta){
-    color: #fff !important;
-  }
-
-  .contact-card{
-    background: rgba(255,255,255,0.12) !important;
-    border-color: rgba(255,255,255,0.25) !important;
-  }
-}
-/* ===== FORCE About heading colour on mobile portrait ===== */
-@media (max-width: 768px) and (orientation: portrait){
-  .about-section h2{
-    color: var(--brand-red) !important;
-  }
-}
-
-
-
-
-
-
-
