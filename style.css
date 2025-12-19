@@ -137,7 +137,7 @@ p, a{ font-weight: 400; }
 
 @keyframes marquee{
   from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
+  to   { transform: translateX(-10%); }
 }
 
 
@@ -465,6 +465,7 @@ footer{
     min-width: 180px;
   }
 }
+
 
 
 
