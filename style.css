@@ -375,9 +375,10 @@ footer{
   border-radius: 10px;
 }
 
-.facebook-cta img{
-  width: 5px;
-  height: 5px;
+.contact-info .facebook-cta img{
+  width: 20px !important;
+  height: 20px !important;
+  object-fit: contain;
 }
 
 @media (hover: hover){
@@ -545,6 +546,7 @@ footer{
     min-width: 180px;
   }
 }
+
 
 
 
