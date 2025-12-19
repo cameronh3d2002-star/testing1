@@ -483,6 +483,7 @@ footer{
     font-size: 34px;
     color: var(--brand-red);
   }
+}
 
   .about-section p{
     font-size: 16px;
@@ -564,6 +565,7 @@ footer{
     border-color: rgba(255,255,255,0.25) !important;
   }
 }
+
 
 
 
