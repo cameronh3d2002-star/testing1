@@ -163,7 +163,7 @@ p, a{
 }
 
 .scroll-track span{
-  padding-right: 10px;
+  padding-right: 40px;
   color: var(--brand-red);
   font-weight: 800;
   font-size: 40px;
@@ -357,7 +357,7 @@ footer{
   /* Marquee smaller on mobile */
   .scroll-track span{
     font-size: 14px;
-    padding-right: 18px;
+    padding-right: 10px;
   }
 
   /* Hero stacks naturally */
