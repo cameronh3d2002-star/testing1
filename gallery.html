@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jones Marine | Gallery</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Sansita:wght@400;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="page-wrapper">
+
+    <!-- HEADER -->
+    <header class="header">
+      <div class="header-inner">
+        <a class="brand" href="index.html">Jones Marine</a>
+
+        <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+
+        <nav class="nav" aria-label="Primary">
+          <a href="services.html">Services</a>
+          <a href="gallery.html" class="active">Gallery</a>
+          <a href="index.html">Home</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- SCROLLING TEXT -->
+    <div class="scroll-container">
+      <div class="scroll-track">
+        <div class="scroll-content">Breakdown // Repair // Recovery // Rescue // Breakdown // Repair // Recovery // Rescue //</div>
+        <div class="scroll-content" aria-hidden="true">Breakdown // Repair // Recovery // Rescue // Breakdown // Repair // Recovery // Rescue //</div>
+      </div>
+    </div>
+
+    <!-- GALLERY -->
+    <main class="gallery-page">
+      <header class="gallery-header">
+        <h2>Gallery</h2>
+        <p>Some recent recovery, repair, and rescue work. Tap any image to enlarge.</p>
+      </header>
+
+      <section class="gallery-grid" aria-label="Gallery images">
+        <!-- Replace these with your own files -->
+        <button class="gallery-item" data-full="images/gallery1.jpg" aria-label="Open image 1">
+          <img src="images/gallery1.jpg" alt="Jones Marine work photo 1">
+        </button>
+
+        <button class="gallery-item" data-full="images/gallery2.jpg" aria-label="Open image 2">
+          <img src="images/gallery2.jpg" alt="Jones Marine work photo 2">
+        </button>
+
+        <button class="gallery-item" data-full="images/gallery3.jpg" aria-label="Open image 3">
+          <img src="images/gallery3.jpg" alt="Jones Marine work photo 3">
+        </button>
+
+        <button class="gallery-item" data-full="images/gallery4.jpg" aria-label="Open image 4">
+          <img src="images/gallery4.jpg" alt="Jones Marine work photo 4">
+        </button>
+
+        <button class="gallery-item" data-full="images/gallery5.jpg" aria-label="Open image 5">
+          <img src="images/gallery5.jpg" alt="Jones Marine work photo 5">
+        </button>
+
+        <button class="gallery-item" data-full="images/gallery6.jpg" aria-label="Open image 6">
+          <img src="images/gallery6.jpg" alt="Jones Marine work photo 6">
+        </button>
+      </section>
+    </main>
+
+    <!-- LIGHTBOX (hidden until click) -->
+    <div class="lightbox" aria-hidden="true">
+      <button class="lightbox-close" type="button" aria-label="Close image">×</button>
+      <img class="lightbox-img" alt="">
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="socials">
+        <a href="https://www.facebook.com/share/17gtnRt9fT/" target="_blank" rel="noopener noreferrer">
+          <img src="images/facebook.png" alt="Facebook">
+        </a>
+        <a href="https://share.google/fp09fJCc30e1kBlGS" target="_blank" rel="noopener noreferrer">
+          <img src="images/location.png" alt="Location">
+        </a>
+      </div>
+      <p>© Copyright 2026</p>
+    </footer>
+
+  </div>
+
+  <!-- Hamburger menu script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const header = document.querySelector('.header');
+      const btn = document.querySelector('.menu-toggle');
+      if (header && btn) {
+        btn.addEventListener('click', () => {
+          const isOpen = header.classList.toggle('is-open');
+          btn.setAttribute('aria-expanded', String(isOpen));
+        });
+      }
+
+      // Lightbox
+      const lb = document.querySelector('.lightbox');
+      const lbImg = document.querySelector('.lightbox-img');
+      const lbClose = document.querySelector('.lightbox-close');
+      const items = document.querySelectorAll('.gallery-item');
+
+      function openLightbox(src, alt) {
+        lbImg.src = src;
+        lbImg.alt = alt || 'Gallery image';
+        lb.classList.add('is-open');
+        lb.setAttribute('aria-hidden', 'false');
+      }
+
+      function closeLightbox() {
+        lb.classList.remove('is-open');
+        lb.setAttribute('aria-hidden', 'true');
+        lbImg.src = '';
+      }
+
+      items.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const img = btn.querySelector('img');
+          openLightbox(btn.dataset.full, img ? img.alt : '');
+        });
+      });
+
+      lbClose.addEventListener('click', closeLightbox);
+      lb.addEventListener('click', (e) => {
+        if (e.target === lb) closeLightbox();
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeLightbox();
+      });
+    });
+  </script>
+</body>
+</html>
