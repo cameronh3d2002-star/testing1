@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <link rel="icon" href="images/file_00000000ec78722f804c88ef5675cbab.png">
@@ -35,19 +36,16 @@
     </header>
 
     <!-- SCROLLING TEXT -->
-<div class="scroll-container">
-  <div class="scroll-track">
-    <div class="scroll-content">
-      Breakdown //  Repair  //  Recovery  //     Rescue  //  Breakdown  //  Repair  //  Recovery  // Rescue  //  Breakdown  //  Repair  //  Recovery  //  Rescue  //
+    <div class="scroll-container">
+      <div class="scroll-track">
+        <div class="scroll-content">
+          Breakdown //  Repair  //  Recovery  //     Rescue  //  Breakdown  //  Repair  //  Recovery  // Rescue  //  Breakdown  //  Repair  //  Recovery  //  Rescue  //
+        </div>
+        <div class="scroll-content" aria-hidden="true">
+          Breakdown //  Repair  //  Recovery  //     Rescue  //  Breakdown  //  Repair  //  Recovery  // Rescue  //  Breakdown  //  Repair  //  Recovery  //  Rescue  //
+        </div>
+      </div>
     </div>
-    <div class="scroll-content" aria-hidden="true">
-      Breakdown //  Repair  //  Recovery  //     Rescue  //  Breakdown  //  Repair  //  Recovery  // Rescue  //  Breakdown  //  Repair  //  Recovery  //  Rescue  //
-    </div>
-  </div>
-</div>
-
-
-
 
     <!-- HERO SECTION -->
     <section class="hero">
@@ -60,8 +58,8 @@
 
           <h2>Call us Now!</h2>
           <h3>
-  <a href="tel:+447901742254" class="phone-link">+44 7901 742254</a>
-</h3>
+            <a href="tel:+447901742254" class="phone-link">+44 7901 742254</a>
+          </h3>
         </div>
 
         <div class="hero-buttons">
@@ -81,7 +79,7 @@
           plant, and marine recovery, repairs, and rescue services across the region.
           With years of hands-on experience, we pride ourselves on fast response times,
           expert workmanship,and dependable service day or night. Operating in the West Midlands,
-          to provide Rapid Response up and down the country. 
+          to provide Rapid Response up and down the country.
         </p>
 
         <p>
@@ -114,16 +112,117 @@
       const header = document.querySelector('.header');
       const btn = document.querySelector('.menu-toggle');
 
-      if (!header || !btn) return;
+      if (header && btn) {
+        btn.addEventListener('click', () => {
+          header.classList.toggle('is-open');
+          btn.setAttribute('aria-expanded', header.classList.contains('is-open'));
+        });
+      }
 
-      btn.addEventListener('click', () => {
-        header.classList.toggle('is-open');
-        btn.setAttribute('aria-expanded', header.classList.contains('is-open'));
+      /* ===== HERO BACKGROUND SLIDER (HTML-only addition) ===== */
+      const hero = document.querySelector('.hero');
+      if (!hero) return;
+
+      // Make sure these files exist in /images
+      const slides = [
+        { img: "images/background1.jpg" },
+        { img: "images/background2.jpg" },
+        { img: "images/background3.jpg" }
+      ];
+
+      let index = 0;
+      let timer = null;
+      const intervalMs = 6000;
+
+      // Preload images for smoother switching
+      slides.forEach(s => {
+        const i = new Image();
+        i.src = s.img;
       });
+
+      // Create arrow controls (added via JS, no HTML structure changes)
+      const prev = document.createElement('button');
+      prev.className = 'hero-arrow prev';
+      prev.type = 'button';
+      prev.setAttribute('aria-label', 'Previous slide');
+      prev.textContent = '‹';
+
+      const next = document.createElement('button');
+      next.className = 'hero-arrow next';
+      next.type = 'button';
+      next.setAttribute('aria-label', 'Next slide');
+      next.textContent = '›';
+
+      // Create dots
+      const dotsWrap = document.createElement('div');
+      dotsWrap.className = 'hero-dots';
+      dotsWrap.setAttribute('aria-label', 'Slide navigation');
+
+      hero.appendChild(prev);
+      hero.appendChild(next);
+      hero.appendChild(dotsWrap);
+
+      const dots = slides.map((_, i) => {
+        const d = document.createElement('button');
+        d.className = 'hero-dot';
+        d.type = 'button';
+        d.setAttribute('aria-label', `Go to slide ${i + 1}`);
+        d.addEventListener('click', () => goTo(i));
+        dotsWrap.appendChild(d);
+        return d;
+      });
+
+      function setActive(i) {
+        hero.style.backgroundImage = `url('${slides[i].img}')`;
+        dots.forEach(d => d.classList.remove('active'));
+        dots[i].classList.add('active');
+      }
+
+      function goTo(i) {
+        index = (i + slides.length) % slides.length;
+        setActive(index);
+        restart();
+      }
+
+      function nextSlide() { goTo(index + 1); }
+      function prevSlide() { goTo(index - 1); }
+
+      function start() {
+        timer = setInterval(nextSlide, intervalMs);
+      }
+
+      function stop() {
+        if (timer) clearInterval(timer);
+        timer = null;
+      }
+
+      function restart() {
+        stop();
+        start();
+      }
+
+      prev.addEventListener('click', prevSlide);
+      next.addEventListener('click', nextSlide);
+
+      // Pause on hover
+      hero.addEventListener('mouseenter', stop);
+      hero.addEventListener('mouseleave', start);
+
+      // Keyboard support
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') prevSlide();
+        if (e.key === 'ArrowRight') nextSlide();
+      });
+
+      // Init
+      setActive(index);
+      start();
     });
   </script>
 </body>
 </html>
+
+
 
 
 
