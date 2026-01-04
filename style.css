@@ -145,11 +145,20 @@ p, a{ font-weight: 400; }
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
 }
+
 /* ========== HERO ========== */
 .hero{
-  background: url("images/background1.jpg") center/cover no-repeat;
+  /* background image is now set by JS for the slider */
   height: 450px;
   position: relative;
+
+  /* Added: ensure background displays correctly for all slides */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* Added: smooth transitions between slides */
+  transition: background-image 1s ease-in-out;
 }
 
 .hero,
@@ -217,6 +226,53 @@ p, a{ font-weight: 400; }
 .btn:hover{
   background: transparent;
   color: #fff;
+}
+
+/* ===== HERO SLIDER CONTROLS (ADDED) ===== */
+.hero-arrow{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 46px;
+  height: 46px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.45);
+  color: #fff;
+  font-size: 32px;
+  line-height: 46px;
+  cursor: pointer;
+  z-index: 50; /* above hero-overlay */
+}
+
+.hero-arrow:hover{
+  background: rgba(0,0,0,0.6);
+}
+
+.hero-arrow.prev{ left: 14px; }
+.hero-arrow.next{ right: 14px; }
+
+.hero-dots{
+  position: absolute;
+  left: 50%;
+  bottom: 14px;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 50;
+}
+
+.hero-dot{
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  border: 0;
+  background: rgba(255,255,255,0.5);
+  cursor: pointer;
+}
+
+.hero-dot.active{
+  background: #ff7a00;
 }
 
 /* ========== ABOUT SECTION ========== */
@@ -547,6 +603,7 @@ footer{
     min-width: 180px;
   }
 }
+
 /* ===== Desktop contact page: force red theme ===== */
 @media (min-width: 769px){
   .contact-info a:not(.facebook-cta){
@@ -566,6 +623,7 @@ footer{
     border-color: rgba(255,255,255,0.25) !important;
   }
 }
+
 /* ===== FORCE About heading colour on mobile portrait ===== */
 @media (max-width: 768px) and (orientation: portrait){
   .about-section h2{
