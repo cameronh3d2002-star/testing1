@@ -148,18 +148,17 @@ p, a{ font-weight: 400; }
 
 /* ========== HERO ========== */
 .hero{
-  /* background image is now set by JS for the slider */
+  /* background is now controlled by JS */
   height: 450px;
   position: relative;
 
-  /* Added: ensure background displays correctly for all slides */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 
-  /* Added: smooth transitions between slides */
-  transition: background-image 1s ease-in-out;
+  transition: background-image 600ms ease-in-out;
 }
+
 
 .hero,
 .hero-overlay{
@@ -748,6 +747,7 @@ footer{
     height: 220px;
   }
 }
+
 
 
 
