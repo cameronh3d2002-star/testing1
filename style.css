@@ -227,6 +227,7 @@ p, a{ font-weight: 400; }
   color: #fff;
 }
 
+
 /* ===== HERO SLIDER CONTROLS (ADDED) ===== */
 .hero-arrow{
   position: absolute;
@@ -273,6 +274,63 @@ p, a{ font-weight: 400; }
 .hero-dot.active{
   background: #ff7a00;
 }
+/* ===== HERO ARROWS (proper chevrons on each side) ===== */
+.hero-arrow{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 54px;
+  height: 54px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(0,0,0,0.45);
+  cursor: pointer;
+  z-index: 60; /* above hero-overlay */
+}
+
+.hero-arrow:hover{
+  background: rgba(0,0,0,0.65);
+}
+
+.hero-arrow.prev{ left: 14px; }
+.hero-arrow.next{ right: 14px; }
+
+/* Draw chevrons */
+.hero-arrow::before{
+  content: "";
+  display: block;
+  width: 14px;
+  height: 14px;
+  border-top: 4px solid #fff;
+  border-right: 4px solid #fff;
+  margin: 0 auto;
+}
+
+.hero-arrow.prev::before{
+  transform: rotate(-135deg);
+}
+
+.hero-arrow.next::before{
+  transform: rotate(45deg);
+}
+
+/* ===== TEXT SLIDE-IN ANIMATION (per slide) ===== */
+.hero-overlay.hero-animate .call-box,
+.hero-overlay.hero-animate .hero-buttons{
+  animation: heroSlideIn 520ms ease both;
+}
+
+@keyframes heroSlideIn{
+  from{
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 
 /* ========== ABOUT SECTION ========== */
 .about-section{
@@ -747,6 +805,7 @@ footer{
     height: 220px;
   }
 }
+
 
 
 
