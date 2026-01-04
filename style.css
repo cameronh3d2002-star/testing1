@@ -641,6 +641,24 @@ footer{
   .brand{ font-size: 20px; }
 }
 
+/* ===== HERO ARROWS: MOBILE POSITION ADJUSTMENT ONLY ===== */
+@media (max-width: 768px){
+  .hero-arrow{
+    top: auto;              /* stop vertical centering */
+    bottom: 22px;           /* move arrows lower */
+    transform: none;        /* reset translateY */
+  }
+
+  .hero-arrow.prev{
+    left: 18px;
+  }
+
+  .hero-arrow.next{
+    right: 18px;
+  }
+}
+
+
 /* ==============================
    LANDSCAPE PHONE FIXES
    ============================== */
@@ -805,6 +823,7 @@ footer{
     height: 220px;
   }
 }
+
 
 
 
